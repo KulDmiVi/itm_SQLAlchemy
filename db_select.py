@@ -7,6 +7,10 @@ def get_providers(session):
     return session.query(Provider).all()
 
 
+def get_clients(session):
+    return session.query(Client).all()
+
+
 def get_providers_filter(session):
     return session.query(Provider).filter(Provider.name_of_provider.like('%2%')).all()
 
@@ -37,9 +41,13 @@ def delete_client(session):
 
 
 def test_selects(session):
+
+
     print('Поставщики')
     for provider in get_providers(session):
         print(provider.id_provider, provider.name_of_provider)
+        for supply in provider.supplies:
+            print(supply.id_supply)
 
     print('Сотрудники')
     for employee in get_employees_order(session):

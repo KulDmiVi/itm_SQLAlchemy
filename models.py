@@ -1,4 +1,4 @@
-from sqlalchemy import Column, Integer, String, Date, Float, Boolean, ForeignKey, LargeBinary
+from sqlalchemy import Column, Integer, String, Date, Float, Boolean, ForeignKey, LargeBinary, Table
 from sqlalchemy.orm import DeclarativeBase, relationship
 
 
@@ -73,3 +73,5 @@ class Orders(Base):
     id_client = Column(Integer(), ForeignKey('client.id_client'))
     posting_date = Column(Date(), nullable=False)
     execution_date = Column(Date(), nullable=False)
+
+
